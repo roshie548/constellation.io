@@ -7,16 +7,18 @@ class Settings extends React.Component {
       display: false,
       websites: []
     }
+    this.displaySettings.bind(this);
   }
 
   displaySettings() {
-    
+    this.setState({display: true});
+    return;
   }
 
   render() {
     return (
       <div>
-          <button onClick=>
+          <button onClick={this.displaySettings}>SETTINGS</button>
       </div>
     );
   }

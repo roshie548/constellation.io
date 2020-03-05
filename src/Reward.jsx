@@ -12,6 +12,8 @@ class Reward extends React.Component {
           <p>
             you've spent 100 minutes studying!
           </p>
+          <button>NEW SESSION</button>
+
       </div>
     );
   }
