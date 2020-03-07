@@ -1,8 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
-import Reward from './Reward.jsx'
-import Settings from './Settings.jsx'
-import Timer from './Timer.jsx'
+import Reward from './components/Reward.jsx'
+import Settings from './components/Settings.jsx'
+import Timer from './components/Timer.jsx'
 
 import './App.css';
 
@@ -11,8 +11,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Reward />
-        <Settings />
-
+        <Settings /> 
       </header>
       <Timer />
     </div>

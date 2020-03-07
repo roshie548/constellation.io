@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './Timer.css'
 class Timer extends React.Component {
   constructor(props) {
     super(props);
@@ -19,7 +19,7 @@ class Timer extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="Timer">
           {this.state.start_time}
           <button onClick={this.startTimer} > START </button>
           <button onClick={this.resetTimer} > RESET </button>

@@ -1,0 +1,17 @@
+.Timer {
+  text-align: center;
+  min-height: 60vh;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+  display: flex;
+
+}
+
+.Settings {
+  min-height: 60vh;
+  min-width: 80vh;
+  background-color: #9DE2E7;
+  font-size: 20px;
+  color: black;
+}
