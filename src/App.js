@@ -12,9 +12,8 @@ function App() {
       <header className="App-header">
         <Reward />
         <Settings />
-
+        <Timer />
       </header>
-      <Timer />
     </div>
   );
 }

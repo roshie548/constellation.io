@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Timer.css"
+//import "./Timer.css"
 class Settings extends React.Component {
   constructor(props) {
     super(props);
