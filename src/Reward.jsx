@@ -1,4 +1,5 @@
 import React from 'react';
+import "./component/reward.css"
 
 class Reward extends React.Component {
   constructor() {

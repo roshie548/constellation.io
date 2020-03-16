@@ -1,0 +1,31 @@
+.Settings{
+  background: #9DE2E7;
+  width: 1000px;
+  height: 500px;
+  position: absolute;
+}
+
+h3{
+  position: absolute;
+width: 790px;
+height: 132px;
+left: 108px;
+top: 79px;
+
+font-family: 'Roboto';
+font-style: normal;
+font-weight: normal;
+font-size: 48px;
+line-height: 87px;
+letter-spacing: 0.025em;
+
+color: #010B28;
+}
+
+img{
+    position: absolute;
+    width: 119px;
+    height: 123px;
+    left: 835px;
+    top: 431px;
+}

@@ -1,0 +1,58 @@
+p{
+  position: absolute;
+  width: 782px;
+  height: 87px;
+  left: 336px;
+  top: 200px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 48px;
+  line-height: 22px;
+
+  color: #BCA6A6;
+
+}
+
+.newsesh{
+  position: absolute;
+  width: 363px;
+  height: 67px;
+  left: 350px;
+  top: 350px;
+
+  background:#454B62;
+
+border: 7px solid #F2F39B;
+box-sizing: border-box;
+box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 24px;
+
+font-family: 'Roboto';
+font-style: normal;
+font-weight: normal;
+font-size: 40px;
+line-height: 35px;
+letter-spacing: 0.05em;
+
+color: #FFFFFF;
+}
+
+h1{
+  position: absolute;
+  width: 957px;
+  height: 160px;
+  left: 238px;
+  top: 38px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 96px;
+  line-height: 173px;
+
+  color: #F2F39B;
+
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
