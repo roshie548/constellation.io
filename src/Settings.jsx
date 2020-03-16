@@ -4,13 +4,24 @@ class Settings extends React.Component {
   constructor(props) {
     super(props);
     this.displaySettings.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
       display: false,
-      websites: ["facebook.com", "instagram.com"]
+      websites: ["facebook.com", "instagram.com"],
+      type_box: ''
     }
   }
 
-  //should add functions to add/delete websites
+  handleChange(event) {
+      this.setState({type_box: event.target.value});
+    }
+
+  handleSubmit(event) {
+      this.setState({websites: this.state.websites.concat([this.state.type_box])});
+      event.preventDefault();
+
+  }
 
   displaySettings = () => { //if they click on the "SETTINGS"  button
     this.setState({display: true});
@@ -32,12 +43,21 @@ class Settings extends React.Component {
     }
 
     else {
-      return ( //open the display settings
+      var webList = this.state.websites.map((w) =>
+        <li>{w}</li>
+      );
+      return (
         <div className="Settings">
             <button onClick={this.closeSettings}>close</button>
             <h3> Blocked Websites </h3>
-            {this.state.websites} // need to figure out how to list them?
-                                  // also how to add/delete websites
+            <form onSubmit={this.handleSubmit}>
+              <label>
+                Add website:
+                <input type="text" value={this.state.value} onChange={this.handleChange} />
+              </label>
+              <input type="submit" value="Submit" />
+              </form>
+            {webList}
         </div>
       );
     }
@@ -46,4 +66,3 @@ class Settings extends React.Component {
 }
 
 export default Settings;
-
