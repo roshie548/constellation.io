@@ -6,16 +6,32 @@ import Timer from './Timer.jsx'
 
 import './App.css';
 
-function App() {
-  return (
+class App extends React.Component {
+  constructor() {
+  	super();
+  	this.state = {
+		elapsedminutes: 0,
+	}
+	this.updateMinutes.bind(this);
+    
+
+  }
+  updateMinutes = (minutes) => {
+	this.setState({elapsedminutes: this.state.elapsedminutes + minutes}) 
+	}
+
+  render() {
+  	return (
     <div className="App">
       <header className="App-header">
-        <Reward />
+        <Reward minutes = {this.state.elapsedminutes}/>
         <Settings />
-        <Timer />
+        <Timer updateMinutes = {this.updateMinutes}/>
       </header>
     </div>
   );
+  }
 }
+
 
 export default App;

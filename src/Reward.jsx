@@ -1,9 +1,10 @@
 import React from 'react';
 import "./component/reward.css"
 
+
 class Reward extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   render() {
@@ -11,7 +12,7 @@ class Reward extends React.Component {
       <div>
           <h1> CONSTELLATION.IO  </h1>
           <p>
-            you've spent 100 minutes studying!
+            you've spent {this.props.minutes} minutes studying!
           </p>
           <button>NEW SESSION</button>
 

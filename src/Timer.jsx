@@ -3,6 +3,7 @@ import './component/timer.css';
 
 class Timer extends React.Component {
   constructor(props) {
+
     super(props);
     this.state = {
       // start_time_min: 10,
@@ -42,9 +43,11 @@ class Timer extends React.Component {
           this.setState(({elapsed_time_hr}) => ({
             elapsed_time_hr: elapsed_time_hr - 1,
             elapsed_time_min: 59
+
           }))
         }
       }
+      this.props.updateMinutes(1)
 
       // if (elapsed_time_min < start_time) {
       //   this.setState(({ elapsed_time_min }) => ({
@@ -71,7 +74,7 @@ class Timer extends React.Component {
     return (
       <div>
         {elapsed_time_min === 0 && elapsed_time_hr === 0 
-          ? <h1> Times Up! </h1>
+          ? <h1 className = "time"> Times Up! </h1>
           : <h1 className = "time" >Time Remaining: {elapsed_time_hr}:{elapsed_time_min < 10 ? `0${elapsed_time_min}` : elapsed_time_min}</h1>
           
 
