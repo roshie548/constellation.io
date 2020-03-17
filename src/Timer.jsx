@@ -5,8 +5,10 @@ class Timer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      start_time: 10,
-      elapsed_time: 0,
+      // start_time_min: 10,
+      // start_time_hr: 0,
+      elapsed_time_min: 10,
+      elapsed_time_hr: 1,
       active: false
     }
     //this.startTimer.bind(this);
@@ -24,18 +26,35 @@ class Timer extends React.Component {
 
   componentDidMount() {
     this.myInterval = setInterval(() => {
-      const { start_time, elapsed_time, active } = this.state
+      const { elapsed_time_min, elapsed_time_hr, active } = this.state
+    
 
-      if (elapsed_time < start_time) {
-        this.setState(({ elapsed_time }) => ({
-          elapsed_time: elapsed_time + 1
+      if (elapsed_time_min > 0) {
+        this.setState(({elapsed_time_min}) => ({
+          elapsed_time_min: elapsed_time_min - 1
         }))
       }
-      
 
-      else {
-        clearInterval(this.myInterval)
+      if (elapsed_time_min === 0) {
+        if (elapsed_time_hr === 0) {
+          clearInterval(this.myInterval)
+        } else {
+          this.setState(({elapsed_time_hr}) => ({
+            elapsed_time_hr: elapsed_time_hr - 1,
+            elapsed_time_min: 59
+          }))
+        }
       }
+
+      // if (elapsed_time_min < start_time) {
+      //   this.setState(({ elapsed_time_min }) => ({
+      //     elapsed_time_min: elapsed_time_min + 1
+      //   }))
+      // }
+      
+      // else {
+      //   clearInterval(this.myInterval)
+      // }
       
     }
     , 1000)
@@ -48,13 +67,18 @@ class Timer extends React.Component {
   
 
   render() {
+    const {elapsed_time_min,elapsed_time_hr} = this.state
     return (
       <div>
+        {elapsed_time_min === 0 && elapsed_time_hr === 0 
+          ? <h1> Times Up! </h1>
+          : <h1 className = "time" >Time Remaining: {elapsed_time_hr}:{elapsed_time_min < 10 ? `0${elapsed_time_min}` : elapsed_time_min}</h1>
+          
 
-          {this.state.elapsed_time}
-          {this.state.start_time}
-          <button onClick={this.startTimer} > START </button>
-          <button onClick={this.resetTimer} > RESET </button>
+          
+          // <button onClick={this.startTimer} > START </button>
+          // <button onClick={this.resetTimer} > RESET </button>
+      }
 
       </div>
     );
