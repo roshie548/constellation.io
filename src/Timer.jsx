@@ -8,6 +8,7 @@ class Timer extends React.Component {
     this.state = {
       // start_time_min: 10,
       // start_time_hr: 0,
+      
       min: 10,
       hr: 1,
       active: false
@@ -28,7 +29,7 @@ class Timer extends React.Component {
 
   componentDidMount() {
     this.myInterval = setInterval(() => {
-      const { elapsed_time_min, elapsed_time_hr, active } = this.state
+      const { min, hr, active } = this.state
 
 
       if (min > 0 && this.state.active) {
@@ -74,7 +75,7 @@ class Timer extends React.Component {
 
 
   render() {
-    const {min,hr} = this.state
+    const {elapsed_time_min, elapsed_time_hr} = this.state
     return (
       <div>
         {elapsed_time_min === 0 && elapsed_time_hr === 0
