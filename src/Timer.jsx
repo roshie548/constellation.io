@@ -10,20 +10,29 @@ class Timer extends React.Component {
       // start_time_hr: 0,
       elapsed_time_min: 10,
       elapsed_time_hr: 1,
-      active: false
+      active: false,
+      myInterval: 0
     }
-    //this.startTimer.bind(this);
+    this.startTimer = this.startTimer.bind(this);
+    this.resetTimer = this.resetTimer.bind(this);
   }
 
-  // startTimer() {
-  //   this.active = true
-  //   return;
-  // }
+  startTimer() {
+    this.active = true
+    return;
+  }
 
-  // resetTimer() {
-  //   this.active = false
-  //   return;
-  // }
+  resetTimer() {
+    const { active } = this.state
+    this.setState(({active}) => ({ active: false}))
+   
+    
+    
+    clearInterval(this.myInterval)
+    return;
+  }
+
+  
 
   componentDidMount() {
     this.myInterval = setInterval(() => {
@@ -73,11 +82,12 @@ class Timer extends React.Component {
     const {elapsed_time_min,elapsed_time_hr} = this.state
     return (
       <div>
+        <button onClick = {this.resetTimer}> CLEAR </button>
         {elapsed_time_min === 0 && elapsed_time_hr === 0 
           ? <h1 className = "time"> Times Up! </h1>
           : <h1 className = "time" >Time Remaining: {elapsed_time_hr}:{elapsed_time_min < 10 ? `0${elapsed_time_min}` : elapsed_time_min}</h1>
           
-
+          
           
           // <button onClick={this.startTimer} > START </button>
           // <button onClick={this.resetTimer} > RESET </button>
