@@ -23,8 +23,14 @@ class Timer extends React.Component {
   }
 
   resetTimer() {
-    const { active } = this.state
-    this.setState(({active}) => ({ active: false}))
+    const { active, elapsed_time_min, elapsed_time_hr } = this.state
+    this.setState(({active, elapsed_time_min, elapsed_time_hr}) => ({
+     active: false,
+     elapsed_time_min: 0,
+     elapsed_time_hr: 0
+   }))
+    //this.setState(({elapsed_time_min}) => ({elapsed_time_min: 0}))
+    //this.setState(({elapsed_time_hr}) => ({elapsed_time_hr: 0}))
    
     
     

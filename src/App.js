@@ -17,6 +17,7 @@ class App extends React.Component {
 	  }
 	this.updateMinutes.bind(this);
   this.blockSites.bind(this);
+  this.block.bind(this);
 
 
   }
@@ -28,16 +29,18 @@ class App extends React.Component {
   //  this.setState({block: b})
   //}
   
-  blockSites(details) {
-    return { redirectUrl: chrome.extension.getURL("sample.html")}
+  blockSites = (details) => {
+    alert("beep");
+    return { redirectUrl: "https://www.coolmathgames.com"};
   }
 
   block() {
     chrome.webRequest.onBeforeRequest.addListener(
-      blockSites,
-      { urls: ["http://*/*"]},
+      this.blockSites,
+      {urls: ["https://*/*"]},
       ["blocking"]);
-    }
+    alert("finished")
+  }
   
 
   render() {
@@ -47,6 +50,7 @@ class App extends React.Component {
         <Reward minutes = {this.state.elapsedminutes}/>
         <Timer updateMinutes = {this.updateMinutes}/>
         <Settings />
+        <button onClick={this.block}> BLOCK </button>
       </header>
     </div>
   );
