@@ -18,6 +18,7 @@ class App extends React.Component {
 	this.updateMinutes.bind(this);
   this.blockSites = this.blockSites.bind(this);
   this.block = this.block.bind(this);
+  this.unblock = this.unblock.bind(this);
 
 
   }
@@ -34,11 +35,14 @@ class App extends React.Component {
   }
 
   block() {
-    console.log("test")
     chrome.webRequest.onBeforeRequest.addListener(
       this.blockSites,
       {urls: ["https://*/*"]},
       ["blocking"]);
+  }
+
+  unblock() {
+    chrome.webRequest.onBeforeRequest.removeListener(this.blockSites); 
   }
   
 
@@ -50,6 +54,7 @@ class App extends React.Component {
         <Timer updateMinutes = {this.updateMinutes}/>
         <Settings />
         <button onClick={this.block}> BLOCK </button>
+        <button onClick={this.unblock}> UNBLOCK </button>
       </header>
     </div>
   );
