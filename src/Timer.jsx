@@ -29,11 +29,7 @@ class Timer extends React.Component {
      elapsed_time_min: 0,
      elapsed_time_hr: 0
    }))
-    //this.setState(({elapsed_time_min}) => ({elapsed_time_min: 0}))
-    //this.setState(({elapsed_time_hr}) => ({elapsed_time_hr: 0}))
    
-    
-    
     clearInterval(this.myInterval)
     return;
   }
