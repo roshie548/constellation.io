@@ -1,3 +1,5 @@
+/*global chrome*/
+
 import React from 'react';
 import logo from './logo.svg';
 import Reward from './Reward.jsx'
@@ -14,6 +16,7 @@ class App extends React.Component {
         block: false
 	  }
 	this.updateMinutes.bind(this);
+  this.blockSites.bind(this);
 
 
   }
@@ -21,9 +24,21 @@ class App extends React.Component {
 	this.setState({elapsedminutes: this.state.elapsedminutes + minutes})
 	}
 
-  blockSites = (b) => {
-    this.setState({block: b})
+  //blockSites = (b) => {
+  //  this.setState({block: b})
+  //}
+  
+  blockSites(details) {
+    return { redirectUrl: chrome.extension.getURL("sample.html")}
   }
+
+  block() {
+    chrome.webRequest.onBeforeRequest.addListener(
+      blockSites,
+      { urls: ["http://*/*"]},
+      ["blocking"]);
+    }
+  
 
   render() {
   	return (
