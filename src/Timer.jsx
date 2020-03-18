@@ -8,41 +8,44 @@ class Timer extends React.Component {
     this.state = {
       // start_time_min: 10,
       // start_time_hr: 0,
-      elapsed_time_min: 10,
-      elapsed_time_hr: 1,
+      min: 10,
+      hr: 1,
       active: false
     }
-    //this.startTimer.bind(this);
   }
 
-  // startTimer() {
-  //   this.active = true
-  //   return;
-  // }
+  startTimer = () => {
+    this.setState({active: true});
+    this.props.block(true);
+    return;
+  }
 
-  // resetTimer() {
-  //   this.active = false
-  //   return;
-  // }
+  resetTimer = () => {
+    this.setState({active: false, min: 0, hr: 0});
+    this.props.block(false)
+    return;
+  }
 
   componentDidMount() {
     this.myInterval = setInterval(() => {
       const { elapsed_time_min, elapsed_time_hr, active } = this.state
 
 
-      if (elapsed_time_min > 0) {
-        this.setState(({elapsed_time_min}) => ({
-          elapsed_time_min: elapsed_time_min - 1
+      if (min > 0 && this.state.active) {
+        this.setState(({min}) => ({
+          min: min - 1
         }))
+        this.props.updateMinutes(1)
+
       }
 
-      if (elapsed_time_min === 0) {
-        if (elapsed_time_hr === 0) {
+      if (min === 0) {
+        if (hr === 0) {
           clearInterval(this.myInterval)
         } else {
-          this.setState(({elapsed_time_hr}) => ({
-            elapsed_time_hr: elapsed_time_hr - 1,
-            elapsed_time_min: 59
+          this.setState(({hr}) => ({
+            hr: hr - 1,
+            min: 59
 
           }))
         }
@@ -63,6 +66,7 @@ class Timer extends React.Component {
     , 1000)
   }
 
+
   componentWillUnmount() {
     clearInterval(this.myInterval)
   }
@@ -70,7 +74,7 @@ class Timer extends React.Component {
 
 
   render() {
-    const {elapsed_time_min,elapsed_time_hr} = this.state
+    const {min,hr} = this.state
     return (
       <div>
         {elapsed_time_min === 0 && elapsed_time_hr === 0

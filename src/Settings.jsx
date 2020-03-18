@@ -48,7 +48,7 @@ class Settings extends React.Component {
       );
       return (
         <div className="Settings">
-            <button class="close"><img src= 'https://image.flaticon.com/icons/svg/1827/1827870.svg' onClick={this.closeSettings}/></button>
+            <img src= 'https://image.flaticon.com/icons/svg/1827/1827870.svg' onClick={this.closeSettings}/>
             <h3> Blocked Websites </h3>
             <form onSubmit={this.handleSubmit}>
               <label>

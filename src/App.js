@@ -10,8 +10,9 @@ class App extends React.Component {
   constructor() {
   	super();
   	this.state = {
-		elapsedminutes: 0,
-	}
+		    elapsedminutes: 0,
+        block: false
+	  }
 	this.updateMinutes.bind(this);
 
 
@@ -19,6 +20,10 @@ class App extends React.Component {
   updateMinutes = (minutes) => {
 	this.setState({elapsedminutes: this.state.elapsedminutes + minutes})
 	}
+
+  blockSites = (b) => {
+    this.setState({block: b})
+  }
 
   render() {
   	return (
