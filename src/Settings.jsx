@@ -37,7 +37,7 @@ class Settings extends React.Component {
     if (!this.state.display) { //display the settings button only
       return (
         <div>
-            <button class="open"><img src="https://image.flaticon.com/icons/svg/1827/1827870.svg" onClick={this.displaySettings}/></button>
+            <img src="https://image.flaticon.com/icons/svg/1827/1827870.svg" onClick={this.displaySettings}/>
         </div>
       );
     }
@@ -48,7 +48,7 @@ class Settings extends React.Component {
       );
       return (
         <div className="Settings">
-            <button class="close"><img src= 'https://image.flaticon.com/icons/svg/1827/1827870.svg' onClick={this.closeSettings}/></button>
+            <img src= 'https://image.flaticon.com/icons/svg/1827/1827870.svg' onClick={this.closeSettings}/>
             <h3> Blocked Websites </h3>
             <form onSubmit={this.handleSubmit}>
               <label>

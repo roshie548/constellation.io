@@ -10,15 +10,20 @@ class App extends React.Component {
   constructor() {
   	super();
   	this.state = {
-		elapsedminutes: 0,
-	}
+		    elapsedminutes: 0,
+        block: false
+	  }
 	this.updateMinutes.bind(this);
-    
+
 
   }
   updateMinutes = (minutes) => {
-	this.setState({elapsedminutes: this.state.elapsedminutes + minutes}) 
+	   this.setState({elapsedminutes: this.state.elapsedminutes + minutes})
 	}
+
+  blockSites = (b) => {
+    this.setState({block: b})
+  }
 
   render() {
   	return (
@@ -26,7 +31,8 @@ class App extends React.Component {
       <header className="App-header">
         <Reward minutes = {this.state.elapsedminutes}/>
         <Settings />
-        <Timer updateMinutes = {this.updateMinutes}/>
+        <Timer updateMinutes = {this.updateMinutes}
+               block = {this.blockSites}/>
       </header>
     </div>
   );
