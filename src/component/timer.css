@@ -16,9 +16,11 @@ font-size: 30px;
 text-align: center;
 color: #000000;
 }
-.time{
-	top: 300px;
-	left:100px;
+.timeRemaining{
+	top: 400px;
+	left: 100px;
 }
-div{
+.timesUp{
+	top: 400px;
+	left: 100px;
 }

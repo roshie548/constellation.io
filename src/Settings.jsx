@@ -34,15 +34,15 @@ class Settings extends React.Component {
   }
 
   render() {
-    if (!this.state.display) { //display the settings button only
-      return (
-        <div>
-            <button class="open"><img src="https://image.flaticon.com/icons/svg/1827/1827870.svg" onClick={this.displaySettings}/></button>
-        </div>
-      );
-    }
+    // if (!this.state.display) { //display the settings button only
+    //   return (
+    //     // <div>
+    //     //     <button class="open"><img src="https://image.flaticon.com/icons/svg/1827/1827870.svg" onClick={this.displaySettings}/></button>
+    //     // </div>
+    //   );
+    // }
 
-    else {
+    // else {
       var webList = this.state.websites.map((w) =>
         <li>{w}</li>
       );
@@ -60,7 +60,7 @@ class Settings extends React.Component {
             {webList}
         </div>
       );
-    }
+    // }
 
   }
 }

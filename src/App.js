@@ -13,11 +13,11 @@ class App extends React.Component {
 		elapsedminutes: 0,
 	}
 	this.updateMinutes.bind(this);
-    
+
 
   }
   updateMinutes = (minutes) => {
-	this.setState({elapsedminutes: this.state.elapsedminutes + minutes}) 
+	this.setState({elapsedminutes: this.state.elapsedminutes + minutes})
 	}
 
   render() {
@@ -25,8 +25,8 @@ class App extends React.Component {
     <div className="App">
       <header className="App-header">
         <Reward minutes = {this.state.elapsedminutes}/>
-        <Settings />
         <Timer updateMinutes = {this.updateMinutes}/>
+        <Settings />
       </header>
     </div>
   );

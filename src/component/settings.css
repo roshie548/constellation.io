@@ -2,11 +2,11 @@
   background: #9DE2E7;
   width: 1000px;
   height: 500px;
-  position: absolute;
+  /* position: absolute; */
 }
 
 h3{
-  position: absolute;
+  /* position: absolute; */
 width: 790px;
 height: 132px;
 left: 108px;
@@ -23,7 +23,7 @@ color: #010B28;
 }
 
 img{
-    position: absolute;
+    /* position: absolute; */
     width: 119px;
     height: 123px;
     left: 835px;

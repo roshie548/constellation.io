@@ -1,8 +1,8 @@
 p{
-  position: absolute;
+  /* position: absolute; */
   width: 782px;
   height: 87px;
-  left: 336px;
+  left: 260px;
   top: 200px;
 
   font-family: 'Roboto';
@@ -16,11 +16,12 @@ p{
 }
 
 .newsesh{
-  position: absolute;
+  /* position: absolute; */
   width: 363px;
   height: 67px;
-  left: 350px;
-  top: 350px;
+  align-self: center;
+  /* left: 450px;
+  top: 350px; */
 
   background:#454B62;
 
@@ -40,10 +41,10 @@ color: #FFFFFF;
 }
 
 h1{
-  position: absolute;
+  /* position: absolute; */
   width: 957px;
   height: 160px;
-  left: 238px;
+  left: 150px;
   top: 38px;
 
   font-family: 'Roboto';

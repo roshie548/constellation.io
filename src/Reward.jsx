@@ -14,7 +14,7 @@ class Reward extends React.Component {
           <p>
             you've spent {this.props.minutes} minutes studying!
           </p>
-          <button>NEW SESSION</button>
+          <button class= "newsesh">NEW SESSION</button>
 
       </div>
     );
