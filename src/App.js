@@ -16,8 +16,8 @@ class App extends React.Component {
         block: false
 	  }
 	this.updateMinutes.bind(this);
-  this.blockSites.bind(this);
-  this.block.bind(this);
+  this.blockSites = this.blockSites.bind(this);
+  this.block = this.block.bind(this);
 
 
   }
@@ -30,16 +30,15 @@ class App extends React.Component {
   //}
   
   blockSites = (details) => {
-    alert("beep");
     return { redirectUrl: "https://www.coolmathgames.com"};
   }
 
   block() {
+    console.log("test")
     chrome.webRequest.onBeforeRequest.addListener(
       this.blockSites,
       {urls: ["https://*/*"]},
       ["blocking"]);
-    alert("finished")
   }
   
 
