@@ -24,14 +24,11 @@ class App extends React.Component {
   }
   updateMinutes = (minutes) => {
 	this.setState({elapsedminutes: this.state.elapsedminutes + minutes})
-	}
-
-  //blockSites = (b) => {
-  //  this.setState({block: b})
-  //}
+  }
   
   blockSites = (details) => {
-    return { redirectUrl: "https://www.coolmathgames.com"};
+    //return { redirectUrl: "https://www.coolmathgames.com"};
+    return { redirectUrl: chrome.runtime.getURL("blocked.html") };
   }
 
   block() {

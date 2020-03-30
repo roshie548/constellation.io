@@ -94,7 +94,6 @@ class Timer extends React.Component {
           // <button onClick={this.startTimer} > START </button>
           // <button onClick={this.resetTimer} > RESET </button>
       }
-
       </div>
     );
   }
