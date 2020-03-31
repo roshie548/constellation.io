@@ -5,7 +5,8 @@ import logo from './logo.svg';
 import Reward from './Reward.jsx'
 import Settings from './Settings.jsx'
 import Timer from './Timer.jsx'
-
+import SignInScreen from './signin.jsx'
+import uiConfig from './firebase.js'
 import './App.css';
 
 class App extends React.Component {
@@ -15,6 +16,7 @@ class App extends React.Component {
 		    elapsedminutes: 0,
         block: false
 	  }
+
 	this.updateMinutes.bind(this);
   this.blockSites = this.blockSites.bind(this);
   this.block = this.block.bind(this);
@@ -25,7 +27,7 @@ class App extends React.Component {
   updateMinutes = (minutes) => {
 	this.setState({elapsedminutes: this.state.elapsedminutes + minutes})
   }
-  
+
   blockSites = (details) => {
     //return { redirectUrl: "https://www.coolmathgames.com"};
     return { redirectUrl: chrome.runtime.getURL("blocked.html") };
@@ -39,14 +41,15 @@ class App extends React.Component {
   }
 
   unblock() {
-    chrome.webRequest.onBeforeRequest.removeListener(this.blockSites); 
+    chrome.webRequest.onBeforeRequest.removeListener(this.blockSites);
   }
-  
+
 
   render() {
   	return (
     <div className="App">
       <header className="App-header">
+      <SignInScreen />
         <Reward minutes = {this.state.elapsedminutes}/>
         <Timer updateMinutes = {this.updateMinutes}/>
         <Settings />

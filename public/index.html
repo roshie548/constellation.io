@@ -40,5 +40,31 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyAsCbGXx_cb8Q2sFucrHjhMHUwK0YfoiAE",
+      authDomain: "constellation-deba2.firebaseapp.com",
+      databaseURL: "https://constellation-deba2.firebaseio.com",
+      projectId: "constellation-deba2",
+      storageBucket: "constellation-deba2.appspot.com",
+      messagingSenderId: "855395750413",
+      appId: "1:855395750413:web:a04f94d9d94a2eda737b44",
+      measurementId: "G-SCH4KWC47C"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
   </body>
 </html>
