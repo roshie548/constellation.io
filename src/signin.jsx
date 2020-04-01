@@ -29,18 +29,28 @@ class SignInScreen extends React.Component {
     }
 
   handleSubmit(event) {
-    docRef.set({
-      username: this.state.value
+    db.collection("users").doc(firebase.auth().currentUser.email).set({
+      username: this.state.value,
+      constellations: [],
+      websites: ["poopoo "],
+      minutesStudied: 0
     });
     console.log(this.state.value);
-      event.preventDefault();
+    this.setState({value: ""});
+
+    event.preventDefault();
+
 
   }
   render() {
     return (
       <div>
+      <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
+
         <form onSubmit={this.handleSubmit}>
+
           <label>
+
             Username:
             <input type="text" value={this.state.value} onChange={this.handleChange} />
           </label>

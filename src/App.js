@@ -49,6 +49,8 @@ class App extends React.Component {
   	return (
     <div className="App">
       <header className="App-header">
+      <h1> CONSTELLATION.IO  </h1>
+
       <SignInScreen />
         <Reward minutes = {this.state.elapsedminutes}/>
         <Timer updateMinutes = {this.updateMinutes}/>
