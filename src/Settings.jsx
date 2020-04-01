@@ -58,6 +58,8 @@ class Settings extends React.Component {
               <input type="submit" value="Submit" />
               </form>
             {webList}
+            <button onClick={this.props.block}> BLOCK </button>
+            <button onClick={this.props.unblock}> UNBLOCK </button>
         </div>
       );
     // }

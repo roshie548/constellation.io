@@ -14,7 +14,8 @@ class App extends React.Component {
   	super();
   	this.state = {
 		    elapsedminutes: 0,
-        block: false
+        block: false,
+        signedIn: false
 	  }
 
 	this.updateMinutes.bind(this);
@@ -33,6 +34,10 @@ class App extends React.Component {
     return { redirectUrl: chrome.runtime.getURL("blocked.html") };
   }
 
+  signIn = () => {
+    this.setState({signedIn: true});
+  }
+
   block() {
     chrome.webRequest.onBeforeRequest.addListener(
       this.blockSites,
@@ -46,20 +51,31 @@ class App extends React.Component {
 
 
   render() {
-  	return (
+    if (this.state.signedIn) {
+      return (
+      <div className="App">
+        <header className="App-header">
+        <h1> CONSTELLATION.IO  </h1>
+
+          <Reward minutes = {this.state.elapsedminutes}/>{"\n"}
+          <Timer updateMinutes = {this.updateMinutes}/>
+          <Settings block={this.block} unblock={this.unblock}/>
+
+        </header>
+      </div>
+    );
+  } else {
+    return  (
     <div className="App">
       <header className="App-header">
       <h1> CONSTELLATION.IO  </h1>
-
-      <SignInScreen />
-        <Reward minutes = {this.state.elapsedminutes}/>
-        <Timer updateMinutes = {this.updateMinutes}/>
-        <Settings />
-        <button onClick={this.block}> BLOCK </button>
-        <button onClick={this.unblock}> UNBLOCK </button>
+      <SignInScreen signIn = {this.signIn}/>
       </header>
     </div>
   );
+  }
+
+
   }
 }
 

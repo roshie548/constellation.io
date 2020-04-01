@@ -1,7 +1,7 @@
 .Settings{
   background: #9DE2E7;
-  width: 1000px;
-  height: 500px;
+  min-width: 150vh;
+  min-height: 100vh;
   /* position: absolute; */
 }
 

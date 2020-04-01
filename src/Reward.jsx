@@ -15,7 +15,7 @@ class Reward extends React.Component {
             <p>
               you've spent {this.props.minutes} minutes studying!
             </p>
-            <img src={require('./component/reward.png')}/>
+            <p><img src={require('./component/reward.png')}/></p>
 
             <button class= "newsesh">NEW SESSION</button>
 

@@ -1,5 +1,5 @@
 button{
-  background: rgba(255, 255, 255, 0.8);
+background: rgba(255, 255, 255, 0.8);
 border: 7px solid #F2F39B;
 box-sizing: border-box;
 box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -23,4 +23,20 @@ color: #000000;
 .timesUp{
 	top: 400px;
 	left: 100px;
+}
+
+.Timer{
+  text-align:center;
+  background: #9DE2E7;
+  min-width: 150vh;
+  min-height: 100vh;
+}
+
+.Time{
+  text-align: center;
+  border: 10px solid white;
+  border-radius: 18px;
+  font-size:130px;
+  color: black;
+  letter-spacing: 3px;
 }

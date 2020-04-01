@@ -35,6 +35,7 @@ class SignInScreen extends React.Component {
       websites: ["poopoo "],
       minutesStudied: 0
     });
+    this.props.signIn();
     console.log(this.state.value);
     this.setState({value: ""});
 
