@@ -8,7 +8,6 @@ class Settings extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
       display: false,
-      websites: ["facebook.com", "instagram.com"],
       type_box: ''
     }
   }
@@ -18,7 +17,7 @@ class Settings extends React.Component {
     }
 
   handleSubmit(event) {
-      this.setState({websites: this.state.websites.concat([this.state.type_box])});
+      this.props.addWebsite(this.state.type_box);
       event.preventDefault();
 
   }
@@ -34,18 +33,8 @@ class Settings extends React.Component {
   }
 
   render() {
-    // if (!this.state.display) { //display the settings button only
-    //   return (
-    //     // <div>
-    //     //     <button class="open"><img src="https://image.flaticon.com/icons/svg/1827/1827870.svg" onClick={this.displaySettings}/></button>
-    //     // </div>
-    //   );
-    // }
-
-    // else {
-      var webList = this.state.websites.map((w) =>
-        <li>{w}</li>
-      );
+      var webList = this.props.websites ? this.props.websites.map((w) =>
+        <li>{w}</li>) : null;
       return (
         <div className="Settings">
             <img src= 'https://image.flaticon.com/icons/svg/1827/1827870.svg' onClick={this.closeSettings}/>

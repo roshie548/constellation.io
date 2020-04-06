@@ -18,6 +18,7 @@ class Timer extends React.Component {
 
   startTimer() {
     this.setState({active: true})
+    this.props.activateTimer();
     return;
   }
 
@@ -30,7 +31,9 @@ class Timer extends React.Component {
      timeSet: false
    }))
 
-    clearInterval(this.myInterval)
+    clearInterval(this.myInterval);
+    this.props.deactivateTimer();
+
     return;
   }
 
@@ -96,6 +99,9 @@ class Timer extends React.Component {
 
   render() {
     const {min,hr} = this.state;
+    if (min===0 && hr===0) {
+      this.props.deactivateTimer();
+    }
     return (
 
       <div className="Timer">

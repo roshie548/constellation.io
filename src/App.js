@@ -16,7 +16,8 @@ class App extends React.Component {
 		    elapsedminutes: 0,
         block: false,
         signedIn: false,
-        websites: []
+        websites: [],
+        timerStart: false
 	  }
 
 	this.updateMinutes.bind(this);
@@ -26,16 +27,29 @@ class App extends React.Component {
 
 
   }
+
+
   updateMinutes = (minutes) => {
 	this.setState({elapsedminutes: this.state.elapsedminutes + minutes})
   }
 
   blockSites = (details) => {
+    //return { redirectUrl: "https://www.coolmathgames.com"};
     return { redirectUrl: chrome.runtime.getURL("blocked.html") };
   }
 
   signIn = () => {
     this.setState({signedIn: true});
+  }
+
+  activateTimer = () => {
+    this.setState({timerStart: true});
+    this.block()
+  }
+
+  deactivateTimer = () => {
+    this.setState({timerStart: false});
+    this.unblock()
   }
 
   block() {
@@ -46,14 +60,12 @@ class App extends React.Component {
   }
   makeSiteList() {
     const finalList = []
-    const webList = ["facebook.com", "poptropica.com", "neopets.com"]
-    for (const link of webList) {
+    for (const link of this.state.websites) {
       finalList.push("*://*."+link+"/*")
     }
-    
+
     return finalList;
   }
-
   unblock() {
     chrome.webRequest.onBeforeRequest.removeListener(this.blockSites);
   }
@@ -64,6 +76,7 @@ class App extends React.Component {
 
 
   render() {
+
     if (this.state.signedIn) {
       return (
       <div className="App">
@@ -72,9 +85,10 @@ class App extends React.Component {
 
           <Reward minutes = {this.state.elapsedminutes}/>{"\n"}
           <Timer updateMinutes = {this.updateMinutes}
-                 startMin = {this.startTime_min}
-                 startSec = {this.startTime_sec}/>
-          <Settings addWebsite={this.addWebsite}
+                 activateTimer = {this.activateTimer}
+                 deactivateTimer = {this.deactivateTimer}/>
+          <Settings websites = {this.state.websites}
+                    addWebsite={this.addWebsite}
                     block={this.block}
                     unblock={this.unblock}/>
 
