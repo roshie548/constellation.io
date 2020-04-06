@@ -6,6 +6,8 @@ class Timer extends React.Component {
 
     super(props);
     this.state = {
+      startMin: 0,
+      startHour: 0,
       min: 0,
       hr: 0,
       active: false,
@@ -84,10 +86,15 @@ class Timer extends React.Component {
 
   handleChangeHr = (event) => {
       this.setState({
+        
         hr: event.target.value});
+      this.props.setHour(event.target.value);
     }
   handleChangeMin = (event) => {
-      this.setState({min: event.target.value});
+      this.setState({
+        
+        min: event.target.value});
+      this.props.setMin(event.target.value);
     }
 
   handleSubmit = (event) => {
