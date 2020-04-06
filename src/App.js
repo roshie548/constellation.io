@@ -17,7 +17,9 @@ class App extends React.Component {
         block: false,
         signedIn: false,
         websites: [],
-        timerStart: false
+        timerStart: false,
+        startMin: 0,
+        startHour: 0,
 	  }
 
 	this.updateMinutes.bind(this);
@@ -74,6 +76,14 @@ class App extends React.Component {
     this.setState({websites: this.state.websites.concat([website])});
   }
 
+  setHour = (startHour) => {
+    this.setState({startHour: startHour})
+  }
+
+  setMin = (startMin) => {
+    this.setState({startMin: startMin})
+  }
+
 
   render() {
 
@@ -83,14 +93,18 @@ class App extends React.Component {
         <header className="App-header">
         <h1> CONSTELLATION.IO  </h1>
 
-          <Reward minutes = {this.state.elapsedminutes}/>{"\n"}
+          <Reward minutes = {this.state.elapsedminutes}
+                  startMin = {this.state.startMin}
+                  startHour = {this.state.startHour}/>{"\n"}
           <Timer updateMinutes = {this.updateMinutes}
                  activateTimer = {this.activateTimer}
                  deactivateTimer = {this.deactivateTimer}/>
           <Settings websites = {this.state.websites}
                     addWebsite={this.addWebsite}
-                    block={this.block}
-                    unblock={this.unblock}/>
+                  setHour = {this.setHour}
+                  setMin = {this.setMin}
+                  startMin = {this.state.startMin}
+                  startHour = {this.state.startHour}/>
 
         </header>
       </div>

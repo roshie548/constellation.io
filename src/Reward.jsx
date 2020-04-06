@@ -9,7 +9,7 @@ class Reward extends React.Component {
   }
 
   render() {
-    if (this.props.minutes >= 10) {
+    if (this.props.minutes <= this.props.startMin) {
       return (
         <div>
             <p>
