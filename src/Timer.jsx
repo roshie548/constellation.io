@@ -6,28 +6,27 @@ class Timer extends React.Component {
 
     super(props);
     this.state = {
-      // start_time_min: 10,
-      // start_time_hr: 0,
-      elapsed_time_min: 10,
-      elapsed_time_hr: 1,
+      min: 0,
+      hr: 0,
       active: false,
-      myInterval: 0
+      myInterval: 0,
+      timeSet: false
     }
     this.startTimer = this.startTimer.bind(this);
     this.resetTimer = this.resetTimer.bind(this);
   }
 
   startTimer() {
-    this.setState({active: true, elapsed_time_min: 10, elapsed_time_hr: 1})
+    this.setState({active: true})
     return;
   }
 
   resetTimer() {
-    const { active, elapsed_time_min, elapsed_time_hr } = this.state
-    this.setState(({active, elapsed_time_min, elapsed_time_hr}) => ({
+    const { active, min, hr } = this.state
+    this.setState(({active, min, hr}) => ({
      active: false,
-     elapsed_time_min: 0,
-     elapsed_time_hr: 0
+     min: 0,
+     hr: 0
    }))
 
     clearInterval(this.myInterval)
@@ -39,21 +38,21 @@ class Timer extends React.Component {
   componentDidMount() {
     console.log(this.state.active);
     this.myInterval = setInterval(() => {
-      const { elapsed_time_min, elapsed_time_hr, active } = this.state
+      const { min, hr, active } = this.state
       if (this.state.active) {
-        if (elapsed_time_min > 0) {
-          this.setState(({elapsed_time_min}) => ({
-            elapsed_time_min: elapsed_time_min - 1
+        if (min > 0) {
+          this.setState(({min}) => ({
+            min: min - 1
           }))
         }
 
-        if (elapsed_time_min === 0) {
-          if (elapsed_time_hr === 0) {
+        if (min === 0) {
+          if (hr === 0) {
             clearInterval(this.myInterval)
           } else {
-            this.setState(({elapsed_time_hr}) => ({
-              elapsed_time_hr: elapsed_time_hr - 1,
-              elapsed_time_min: 59
+            this.setState(({hr}) => ({
+              hr: hr - 1,
+              min: 59
 
             }))
           }
@@ -63,9 +62,9 @@ class Timer extends React.Component {
 
 
 
-      // if (elapsed_time_min < start_time) {
-      //   this.setState(({ elapsed_time_min }) => ({
-      //     elapsed_time_min: elapsed_time_min + 1
+      // if (min < start_time) {
+      //   this.setState(({ min }) => ({
+      //     min: min + 1
       //   }))
       // }
 
@@ -82,26 +81,53 @@ class Timer extends React.Component {
   }
 
 
+  handleChangeHr = (event) => {
+      this.setState({hr: event.target.value});
+    }
+  handleChangeMin = (event) => {
+      this.setState({min: event.target.value});
+    }
+
+  handleSubmit = (event) => {
+    this.setState({timeSet: true});
+  }
 
   render() {
-    const {elapsed_time_min,elapsed_time_hr} = this.state
+    const {min,hr} = this.state;
     return (
+
       <div className="Timer">
+      {this.state.timeSet ?
 
-        {elapsed_time_min === 0 && elapsed_time_hr === 0
-          ? <h1 className = "time"> Times Up! </h1>
-          : <div><h1 className = "time" >Time Remaining:{"\n"}</h1>
-          <h1 className="Time">
-          {elapsed_time_hr}:{elapsed_time_min < 10 ? `0${elapsed_time_min}` : elapsed_time_min} </h1></div>}
+          <div>
+            {min === 0 && hr === 0
+              ? <h1 className = "time"> Times Up! </h1>
+              : <div><h1 className = "time" >Time Remaining:{"\n"}</h1>
+              <h1 className="Time">
+              {hr}:{min < 10 ? `0${min}` : min} </h1></div>}
 
-          <button onClick = {this.startTimer}> START </button>
+              <button onClick = {this.startTimer}> START </button>
 
-          <button onClick = {this.resetTimer}> CLEAR </button>
+              <button onClick = {this.resetTimer}> CLEAR </button>
+            </div>
 
+        :
 
-      </div>
+        <div>
+        <h2> New session</h2>
+        <form onSubmit={this.handleSubmit}>
+          hr:
+           <input type="text" value={this.state.hr} onChange={this.handleChangeHr} />
+          min:
+          <input type="text" value={this.state.min} onChange={this.handleChangeMin} />
+          <input type="submit" value="Submit" />
+        </form>
+        </div>
+      }
+        </div>
     );
   }
+
 }
 
 export default Timer;

@@ -15,7 +15,8 @@ class App extends React.Component {
   	this.state = {
 		    elapsedminutes: 0,
         block: false,
-        signedIn: false
+        signedIn: false,
+        websites: []
 	  }
 
 	this.updateMinutes.bind(this);
@@ -66,7 +67,9 @@ class App extends React.Component {
         <h1> CONSTELLATION.IO  </h1>
 
           <Reward minutes = {this.state.elapsedminutes}/>{"\n"}
-          <Timer updateMinutes = {this.updateMinutes}/>
+          <Timer updateMinutes = {this.updateMinutes}
+                 startMin = {this.startTime_min}
+                 startSec = {this.startTime_sec}/>
           <Settings block={this.block} unblock={this.unblock}/>
 
         </header>

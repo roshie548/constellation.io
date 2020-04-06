@@ -14,6 +14,9 @@ var firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
+// Required for side-effects
+require("firebase/firestore");
+
 const uiConfig = {
   signInFlow: 'popup',
   callbacks: {
