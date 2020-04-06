@@ -50,6 +50,10 @@ class App extends React.Component {
     chrome.webRequest.onBeforeRequest.removeListener(this.blockSites);
   }
 
+  addWebsite = (website) => {
+    this.setState({websites: this.state.websites.concat([website])});
+  }
+
 
   render() {
     if (this.state.signedIn) {
@@ -62,7 +66,9 @@ class App extends React.Component {
           <Timer updateMinutes = {this.updateMinutes}
                  startMin = {this.startTime_min}
                  startSec = {this.startTime_sec}/>
-          <Settings block={this.block} unblock={this.unblock}/>
+          <Settings addWebsite={this.addWebsite}
+                    block={this.block}
+                    unblock={this.unblock}/>
 
         </header>
       </div>

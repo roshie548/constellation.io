@@ -22,11 +22,12 @@ class Timer extends React.Component {
   }
 
   resetTimer() {
-    const { active, min, hr } = this.state
-    this.setState(({active, min, hr}) => ({
+    const { active, min, hr, timeSet } = this.state
+    this.setState(({active, min, hr, timeSet}) => ({
      active: false,
      min: 0,
-     hr: 0
+     hr: 0,
+     timeSet: false
    }))
 
     clearInterval(this.myInterval)
@@ -82,7 +83,8 @@ class Timer extends React.Component {
 
 
   handleChangeHr = (event) => {
-      this.setState({hr: event.target.value});
+      this.setState({
+        hr: event.target.value});
     }
   handleChangeMin = (event) => {
       this.setState({min: event.target.value});
@@ -108,13 +110,13 @@ class Timer extends React.Component {
 
               <button onClick = {this.startTimer}> START </button>
 
-              <button onClick = {this.resetTimer}> CLEAR </button>
+              <button onClick = {this.resetTimer}> RESTART </button>
             </div>
 
         :
 
         <div>
-        <h2> New session</h2>
+        <h1> New session</h1>
         <form onSubmit={this.handleSubmit}>
           hr:
            <input type="text" value={this.state.hr} onChange={this.handleChangeHr} />
