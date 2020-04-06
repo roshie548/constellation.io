@@ -30,7 +30,6 @@ class App extends React.Component {
   }
 
   blockSites = (details) => {
-    //return { redirectUrl: "https://www.coolmathgames.com"};
     return { redirectUrl: chrome.runtime.getURL("blocked.html") };
   }
 
@@ -41,8 +40,17 @@ class App extends React.Component {
   block() {
     chrome.webRequest.onBeforeRequest.addListener(
       this.blockSites,
-      {urls: ["https://*/*"]},
+      {urls: this.makeSiteList()},
       ["blocking"]);
+  }
+  makeSiteList() {
+    const finalList = []
+    const webList = ["facebook.com", "poptropica.com", "neopets.com"]
+    for (const link of webList) {
+      finalList.push("*://*."+link+"/*")
+    }
+    
+    return finalList;
   }
 
   unblock() {
