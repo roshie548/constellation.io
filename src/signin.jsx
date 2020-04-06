@@ -30,7 +30,7 @@ class SignInScreen extends React.Component {
 
   handleSubmit(event) {
     db.collection("users").doc(firebase.auth().currentUser.email).set({
-      username: this.state.value,
+      name: this.state.value,
       constellations: [],
       websites: ["poopoo "],
       minutesStudied: 0
@@ -52,7 +52,7 @@ class SignInScreen extends React.Component {
 
           <label>
 
-            Username:
+            Name:
             <input type="text" value={this.state.value} onChange={this.handleChange} />
           </label>
 
