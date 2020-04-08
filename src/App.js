@@ -32,14 +32,15 @@ class App extends React.Component {
 
   }
 
-  //this doesnt work
   updateMinutes = (minutes) => {
-  	this.setState({elapsedminutes: this.state.elapsedminutes + minutes})
-    var db = firebase.firestore();
-    var docRef = db.collection("users").doc(firebase.auth().currentUser.email)
-    docRef.update({
-      minutesStudied: this.state.elapsedminutes
+  	this.setState({elapsedminutes: this.state.elapsedminutes + minutes}, () => {
+      var db = firebase.firestore();
+      var docRef = db.collection("users").doc(firebase.auth().currentUser.email)
+      docRef.update({
+        minutesStudied: this.state.elapsedminutes
+      });
     });
+
   }
 
   blockSites = (details) => {
@@ -55,7 +56,7 @@ class App extends React.Component {
     docRef.get().then(function(doc) {
       test.setState({name: doc.data().name,
                     signedIn: true,
-                     elapsedminutes: doc.data().minutesStudied,
+                     elapsedminutes: Number(doc.data().minutesStudied), //i think the data returns it as a string...
                      websites: doc.data().websites});
     });
 
@@ -81,13 +82,17 @@ class App extends React.Component {
 
 
   deleteWebsite = (w) => {
-    this.setState({websites: this.removeElementFromList(this.state.websites, w)});
+    this.setState({websites: this.removeElementFromList(this.state.websites, w)}, () => {
+
+
+
     var db = firebase.firestore();
     var docRef = db.collection("users").doc(firebase.auth().currentUser.email)
     docRef.update({
       websites: firebase.firestore.FieldValue.arrayRemove(w)
     });
-
+      }
+    );
   }
 
   block() {
@@ -143,7 +148,7 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
         <h1> CONSTELLATION.IO  </h1>
-
+          Welcome {this.state.name}! You have studied for {this.state.elapsedminutes} minutes
           <Timer updateMinutes = {this.updateMinutes}
                   activateTimer = {this.activateTimer}
                   deactivateTimer = {this.deactivateTimer}
