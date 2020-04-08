@@ -22,11 +22,13 @@ class Timer extends React.Component {
     this.props.activateTimer();
     const t = 60000*this.state.hr + 1000* this.state.min;
     setTimeout(() => {
-      this.props.deactivateTimer();
       console.log("stopped");
+      this.props.deactivateTimer();
+
       if (!this.state.stoppedEarly) {
-        this.setState({active:false, timeSet:false});
         this.props.updateMinutes(t)
+      } else {
+        this.setState({active:false, timeSet:false});
       }
     }, t);
 
