@@ -1,5 +1,6 @@
 import React from 'react';
 import "./component/settings.css"
+import WebList from "./WebList.jsx"
 class Settings extends React.Component {
   constructor(props) {
     super(props);
@@ -34,7 +35,8 @@ class Settings extends React.Component {
 
   render() {
       var webList = this.props.websites ? this.props.websites.map((w) =>
-        <li>{w}</li>) : null;
+        <WebList deleteWebsite={this.props.deleteWebsite}
+                 url={w} />) : null;
       return (
         <div className="Settings">
             <img src= 'https://image.flaticon.com/icons/svg/1827/1827870.svg' onClick={this.closeSettings}/>

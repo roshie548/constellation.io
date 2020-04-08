@@ -31,9 +31,9 @@ class SignInScreen extends React.Component {
   handleSubmit(event) {
     db.collection("users").doc(firebase.auth().currentUser.email).set({
       name: this.state.value,
-      constellations: [],
-      websites: ["poopoo "],
+      websites: ["facebook.com"],
       minutesStudied: 0
+
     });
     this.props.signIn();
     console.log(this.state.value);
