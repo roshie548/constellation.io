@@ -50,7 +50,7 @@ class Timer extends React.Component {
 
     clearInterval(this.myInterval);
     this.props.deactivateTimer();
-    console.log(this.state.active);
+
 
     return;
   }
@@ -67,7 +67,7 @@ class Timer extends React.Component {
             min: min - 1
 
           }))
-          console.log("tick");
+          
         }
 
         if (min === 0) {
@@ -107,10 +107,7 @@ class Timer extends React.Component {
   }
 
   render() {
-    console.log("active?")
     console.log(this.state.active)
-      console.log("timeset?")
-      console.log(this.state.timeSet)
     const {min,hr} = this.state;
 
     return (

@@ -42,6 +42,7 @@ class App extends React.Component {
     });
 
   }
+  
 
   blockSites = (details) => {
     //return { redirectUrl: "https://www.coolmathgames.com"};
@@ -149,6 +150,9 @@ class App extends React.Component {
         <header className="App-header">
         <h1> CONSTELLATION.IO  </h1>
           Welcome {this.state.name}! You have studied for {this.state.elapsedminutes} minutes
+          <Reward minutes = {this.state.elapsedminutes}
+                  startMin = {this.state.startMin}   
+                  startHour = {this.state.startHour}/>
           <Timer updateMinutes = {this.updateMinutes}
                   activateTimer = {this.activateTimer}
                   deactivateTimer = {this.deactivateTimer}
