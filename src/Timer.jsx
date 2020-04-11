@@ -132,17 +132,23 @@ class Timer extends React.Component {
         :
 
         <div>
-        <h1> New session</h1>
-        <form onSubmit={this.handleSubmit}>
-          hr:
-           <input type="text" value={this.state.hr} onChange={this.handleChangeHr} />
-          min:
-          <input type="text" value={this.state.min} onChange={this.handleChangeMin} />
-          <input type="submit" value="Submit" />
-        </form>
+          <center className = "newSession" > NEW SESSION</center>
+          <center id="form-box">
+            <form onSubmit={this.handleSubmit}>
+              <div class = "hrmin">
+                <h4> hour </h4>
+                <h4> minute </h4>
+              </div>  
+                 <input className = "timeInput" type="text" value={this.state.hr} onChange={this.handleChangeHr} />
+                
+                  <input className = "timeInput" type="text" value={this.state.min} onChange={this.handleChangeMin} /><br></br>
+              <input className = "submitButton" type="submit" value="Submit" />
+              
+            </form>
+          </center>
         </div>
       }
-        </div>
+      </div>
     );
   }
 

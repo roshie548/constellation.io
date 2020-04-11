@@ -1,42 +1,145 @@
 button{
 background: rgba(255, 255, 255, 0.8);
-border: 7px solid #F2F39B;
-box-sizing: border-box;
-box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 18px;
+  border: 7px solid #F2F39B;
+  box-sizing: border-box;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  padding:15px 40px 15px 40px;
+  margin:5px;
 
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
 
-font-family: 'Roboto';
-font-style: normal;
-font-weight: normal;
-font-size: 30px;
+  /* identical to box height */
 
-/* identical to box height */
+  text-align: center;
+  color: #000000;
+  display: inline;
 
-text-align: center;
-color: #000000;
 }
+
+button:hover{
+  background: #e3e3e3;
+}
+
+h4{
+    align-content: center;
+    padding: 0px 95px 0px 95px;
+    border: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+}
+
+.hrmin{
+  margin: 5px;
+  padding: 5px;
+/*  align-content: center;
+*/  font-size: 25px;
+  font-family: "Roboto";
+  display: flex;
+  flex-direction: row;
+/*  box-sizing: border-box;*/
+  justify-content: center;
+
+}
+
 .timeRemaining{
-	top: 400px;
-	left: 100px;
+  align-content: center;
+	/*top: 400px;
+	left: 100px;*/
 }
 .timesUp{
-	top: 400px;
-	left: 100px;
+  align-content: center;
+	/*top: 400px;
+	left: 100px;*/
 }
 
 .Timer{
+  box-sizing: border-box;
   text-align:center;
+  align-content: center;
   background: #9DE2E7;
-  min-width: 150vh;
+  width:100%;
   min-height: 100vh;
+  padding: 30px 100px 30px 100px;
 }
 
 .Time{
   text-align: center;
+  align-content: center;
   border: 10px solid white;
   border-radius: 18px;
   font-size:130px;
   color: black;
   letter-spacing: 3px;
 }
+
+#form-box {
+  display: flex;
+  justify-content:center;
+  flex-direction: column;
+/*  box-sizing: border-box;
+*/
+}
+
+
+/*#timeinput-box {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+
+}*/
+
+.newSession{
+
+  align-content: center;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 96px;
+  line-height: 173px;
+
+  padding: 10px 20px 10px 20px;
+
+  color: #F2F39B;
+}
+
+.timeInput[type=text]{
+
+   width: 150px;
+  padding: 20px;
+  border: none;
+  border-radius: 5px; 
+  margin: 20px;
+  font-size: 100px;
+}
+
+.submitButton{
+  background: rgba(255, 255, 255, 0.8);
+  border: 7px solid #F2F39B;
+  box-sizing: border-box;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  padding:15px 40px 15px 40px;
+  margin:5px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+
+  /* identical to box height */
+
+  text-align: center;
+  color: #000000;
+  display: inline;
+
+
+}
+.submitButton:hover {
+  background: #e3e3e3;
+}
+
+

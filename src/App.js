@@ -149,7 +149,7 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
         <h1> CONSTELLATION.IO  </h1>
-          Welcome {this.state.name}! You have studied for {this.state.elapsedminutes} minutes
+          <h2> Welcome {this.state.name}! You have studied for {this.state.elapsedminutes} minutes. </h2>
           <Reward minutes = {this.state.elapsedminutes}
                   startMin = {this.state.startMin}   
                   startHour = {this.state.startHour}/>

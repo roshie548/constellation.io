@@ -1,8 +1,8 @@
 .Settings{
   background: #9DE2E7;
-  min-width: 150vh;
-  min-height: 100vh;
-  /* position: absolute; */
+  width: 100%;
+/*  min-height: 100vh;
+*/  /* position: absolute; */
 }
 
 h3{
