@@ -41,17 +41,11 @@ color: #FFFFFF;
 }
 
 h1{
-  /* position: absolute; */
-  width:100%;
-  height: 160px;
-  left: 150px;
-  top: 38px;
-
+  text-align: center;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: normal;
   font-size: 96px;
-  line-height: 173px;
 
   color: #F2F39B;
 
@@ -59,5 +53,8 @@ h1{
 }
 
 .Peppapics{
-  width: 1000px;
+  width: 500px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

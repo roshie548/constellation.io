@@ -39,18 +39,33 @@ class Settings extends React.Component {
                  url={w} />) : null;
       return (
         <div className="Settings">
-            <img src= 'https://image.flaticon.com/icons/svg/1827/1827870.svg' onClick={this.closeSettings}/>
-            <h3> Blocked Websites </h3>
-            <form onSubmit={this.handleSubmit}>
-              <label>
-                Add website:
-                <input type="text" value={this.state.value} onChange={this.handleChange} />
-              </label>
-              <input type="submit" value="Submit" />
-              </form>
-            {webList}
-            <button onClick={this.props.block}> BLOCK </button>
-            <button onClick={this.props.unblock}> UNBLOCK </button>
+
+           <div class = "settingButton">
+              <img className = {"settingGears"} src= 'https://image.flaticon.com/icons/svg/1827/1827870.svg' onClick={this.closeSettings}/>
+            </div>  
+
+            <div class = "settingForm">
+
+                <h3> BLOCKED WEBSITES </h3>
+
+                <form className = "websiteForm" onSubmit={this.handleSubmit}>
+                  <label>
+                  Add website:
+                  <input className = "websiteInput" type="text" value={this.state.value} onChange={this.handleChange} />
+                  </label>
+                <input className = "websiteSubmit" type="submit" value="Submit" />
+                </form>
+
+                <div className = "websiteList">
+                  {webList}
+                </div>
+
+                <div className = "blockButtons">
+                  <button className = "blockButton" onClick={this.props.block}> BLOCK </button>
+                  <button className = "blockButton" onClick={this.props.unblock}> UNBLOCK </button>
+                </div>
+            </div>
+
         </div>
       );
     // }
