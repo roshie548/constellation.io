@@ -33,6 +33,7 @@ class App extends React.Component {
   }
 
   updateMinutes = (minutes) => {
+    console.log("called updatemin" + minutes);
   	this.setState({elapsedminutes: this.state.elapsedminutes + minutes}, () => {
       var db = firebase.firestore();
       var docRef = db.collection("users").doc(firebase.auth().currentUser.email)
@@ -130,11 +131,11 @@ class App extends React.Component {
   }
 
   setHour = (startHour) => {
-    this.setState({startHour: startHour})
+    this.setState({startHour: parseInt(startHour)})
   }
 
   setMin = (startMin) => {
-    this.setState({startMin: startMin})
+    this.setState({startMin: parseInt(startMin)})
   }
 
   setTotalTime = (sessionTime) => { 

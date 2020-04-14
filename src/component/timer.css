@@ -143,3 +143,42 @@ h4{
 }
 
 
+/* Loader two: Wave */
+.loader.two {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	width: 110px;
+}
+
+.loader.two .dot {
+	height: 30px;
+	width: 30px;
+	background: #000;
+	border-radius: 15px;
+	background: #F76A4D;
+	/* TODO: PART 2 - Add wave animation */
+	animation: wave 2s infinite;
+}
+
+@keyframes wave {
+	0% {transform: translateY(0px);}
+	25% {transform: translateY(0px);}
+	50% {transform: translateY(-10px);}
+	75% {transform: translateY(0px);}
+	100% {transform: translateY(0px);}
+}
+
+/* TODO: PART 2 - Add delays and dot colors */
+.loader.two .second.dot {
+	background-color: #4DB1F7;
+	animation-delay: 0.25s; 
+}
+
+/* TODO: PART 2 - Create wave animation */
+.loader.two .third.dot{
+	animation-delay: 0.5s;
+	background-color: #7DE76A;
+}
+
