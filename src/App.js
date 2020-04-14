@@ -23,6 +23,7 @@ class App extends React.Component {
         timerStart: false,
         startMin: 0,
         startHour: 0,
+        peppapic: 0
 	  }
 
 	this.updateMinutes.bind(this);
@@ -34,12 +35,14 @@ class App extends React.Component {
 
   updateMinutes = (minutes) => {
     console.log("called updatemin" + minutes);
+    
   	this.setState({elapsedminutes: this.state.elapsedminutes + minutes}, () => {
       var db = firebase.firestore();
       var docRef = db.collection("users").doc(firebase.auth().currentUser.email)
       docRef.update({
         minutesStudied: this.state.elapsedminutes
       });
+      this.updatePhoto(this.state.elapsedminutes);
     });
 
   }
@@ -143,6 +146,16 @@ class App extends React.Component {
   }
 
 
+  updatePhoto = (elapsedminutes) => {
+    var whichphoto = elapsedminutes;
+    if (whichphoto > 7) {
+      whichphoto = 7;
+    }
+    this.setState({peppapic: whichphoto});
+
+  };
+
+
   render() {
 
     if (this.state.signedIn) {
@@ -153,7 +166,8 @@ class App extends React.Component {
           <h2> Welcome {this.state.name}! You have studied for {this.state.elapsedminutes} minutes. </h2>
           <Reward minutes = {this.state.elapsedminutes}
                   startMin = {this.state.startMin}   
-                  startHour = {this.state.startHour}/>
+                  startHour = {this.state.startHour}
+                  peppapic = {this.state.peppapic}/>
           <Timer updateMinutes = {this.updateMinutes}
                   activateTimer = {this.activateTimer}
                   deactivateTimer = {this.deactivateTimer}
@@ -186,6 +200,10 @@ class App extends React.Component {
 
   }
 }
+
+
+
+
 
 
 export default App;

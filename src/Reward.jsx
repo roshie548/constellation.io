@@ -13,12 +13,13 @@ class Reward extends React.Component {
   }
 
   render() {
+      console.log(this.props.peppapic)
       return (
         <div>
             <p>
               you've spent {this.props.minutes} minutes studying!
             </p>
-            <p><img src={require('./component/rewards/' + this.state.images[this.state.interval])}/></p>
+            <p><img src={require('./component/rewards/' + this.state.images[this.props.peppapic])}/></p>
         </div>
       )
     
