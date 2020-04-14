@@ -147,7 +147,7 @@ class App extends React.Component {
 
 
   updatePhoto = (elapsedminutes) => {
-    var whichphoto = elapsedminutes;
+    var whichphoto = Math.floor(elapsedminutes / 10);
     if (whichphoto > 7) {
       whichphoto = 7;
     }
