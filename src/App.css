@@ -1,6 +1,8 @@
 .App {
 /*  text-align: center;*/
   background-color: #010B2E;
+  width: 100%;
+  height: 100vh;
 }
 
 /*.App-logo {
@@ -30,7 +32,12 @@ h2{
   font-style: normal;
   font-weight: normal;
   border:2px;
-  
+
+}
+
+.nameForm{
+    text-align: center;
+    margin: 10px;
 }
 
 /*.App-link {

@@ -48,7 +48,7 @@ class SignInScreen extends React.Component {
       <div>
       <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
 
-        <form onSubmit={this.handleSubmit}>
+        <form className = "nameForm" onSubmit={this.handleSubmit}>
 
           <label>
 
