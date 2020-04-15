@@ -63,6 +63,7 @@ class App extends React.Component {
                     signedIn: true,
                      elapsedminutes: Number(doc.data().minutesStudied), //i think the data returns it as a string...
                      websites: doc.data().websites});
+      test.updatePhoto(test.state.elapsedminutes);               
     });
 
   }
