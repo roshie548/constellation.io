@@ -20,18 +20,18 @@ class Timer extends React.Component {
 
 
   startTimer() {
-    
+
 
     this.setState({active: true});
     this.myInterval = setInterval(() => {
       const { min, hr, active } = this.state
-      
+
         if (min > 0) {
           this.setState(({min}) => ({
             min: min - 1
 
           }))
-          
+
         }
 
         if (min === 0) {
@@ -45,7 +45,7 @@ class Timer extends React.Component {
             }))
           }
         }
-      
+
 
     }
     , 1000);
@@ -76,10 +76,10 @@ class Timer extends React.Component {
   }
 
   resetTimer() {
-    
-    
+
+
     clearTimeout(this.ourTimeout);
-    
+
     const { active, min, hr, timeSet } = this.state
     this.setState(({active, min, hr, timeSet}) => ({
      active: false,
@@ -114,7 +114,7 @@ class Timer extends React.Component {
   //           min: min - 1
 
   //         }))
-          
+
   //       }
 
   //       if (min === 0) {
@@ -151,7 +151,7 @@ class Timer extends React.Component {
     this.setState({timeSet: true, stoppedEarly: false});
     this.props.setHour(this.state.hr);
     this.props.setMin(this.state.min);
-    
+
   }
 
   render() {
@@ -163,37 +163,23 @@ class Timer extends React.Component {
       <div className="Timer">
       {this.state.timeSet ?
 
-          <div>
 
-
-          
-                    <div class="loader-card">
-                                  
-                      <div class= "loader two">
-                        <div class="first dot"></div>
-                        <div class="second dot"></div>
-                        <div class="third dot"></div>
-                      </div>
-                  </div>
-                    
-                  
-
-
-
-
-            Session: {this.props.startHour} hours, {this.props.startMin} mins
+            <div> Session: {this.props.startHour} hours, {this.props.startMin} mins
             {min === 0 && hr === 0
               ? <h1 className = "time"> Times Up! </h1>
               : <div><h1 className = "time" >Time Remaining:{"\n"}</h1>
+              {this.state.active ? <div class="loader-card">
+                <div class= "loader two">
+                  <div class="first dot"></div>
+                  <div class="second dot"></div>
+                  <div class="third dot"></div>
+                </div></div> : <div></div>}
               <h1 className="Time">
               {hr}:{min < 10 ? `0${min}` : min} </h1></div>}
 
               {this.state.active? <button onClick = {this.resetTimer}> RESTART </button> :
             <button onClick = {this.startTimer}> START </button>}
-
-
             </div>
-
         :
 
         <div>
@@ -203,12 +189,12 @@ class Timer extends React.Component {
               <div class = "hrmin">
                 <h4> hour </h4>
                 <h4> minute </h4>
-              </div>  
+              </div>
                  <input className = "timeInput" type="text" value={this.state.hr} onChange={this.handleChangeHr} />
-                
+
                   <input className = "timeInput" type="text" value={this.state.min} onChange={this.handleChangeMin} /><br></br>
               <input className = "submitButton" type="submit" value="SUBMIT" />
-              
+
             </form>
           </center>
         </div>

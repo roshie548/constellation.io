@@ -42,7 +42,7 @@ class Settings extends React.Component {
 
            <div class = "settingButton">
               <img className = {"settingGears"} src= 'https://image.flaticon.com/icons/svg/1827/1827870.svg' onClick={this.closeSettings}/>
-            </div>  
+            </div>
 
             <div class = "settingForm">
 
@@ -60,10 +60,7 @@ class Settings extends React.Component {
                   {webList}
                 </div>
 
-                <div className = "blockButtons">
-                  <button className = "blockButton" onClick={this.props.block}> BLOCK </button>
-                  <button className = "blockButton" onClick={this.props.unblock}> UNBLOCK </button>
-                </div>
+                
             </div>
 
         </div>
