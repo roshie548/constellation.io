@@ -9,6 +9,9 @@ import SignInScreen from './signin.jsx'
 import uiConfig from './firebase.js'
 import * as firebase from "firebase";
 
+import ReactDOM from 'react-dom';
+import ReactFullpage from '@fullpage/react-fullpage';
+
 import './App.css';
 
 class App extends React.Component {
@@ -161,49 +164,66 @@ class App extends React.Component {
 
     if (this.state.signedIn) {
       return (
-      <div className="App">
-        <header className="App-header">
-        <h1> CONSTELLATION.IO  </h1>
-          <h2> Welcome {this.state.name}! You have studied for {this.state.elapsedminutes} minutes. </h2>
-          <Reward minutes = {this.state.elapsedminutes}
-                  startMin = {this.state.startMin}   
-                  startHour = {this.state.startHour}
-                  peppapic = {this.state.peppapic}/>
-          <Timer updateMinutes = {this.updateMinutes}
-                  activateTimer = {this.activateTimer}
-                  deactivateTimer = {this.deactivateTimer}
-                  setHour = {this.setHour}
-                  setMin = {this.setMin}
-                  startMin = {this.state.startMin}
-                  startHour = {this.state.startHour}/>
-          <Settings websites = {this.state.websites}
-                  deleteWebsite = {this.deleteWebsite}
-                  addWebsite={this.addWebsite}
-                  setHour = {this.setHour}
-                  setMin = {this.setMin}
-                  startMin = {this.state.startMin}
-                  startHour = {this.state.startHour}/>
+        <ReactFullpage
+          licenseKey = {'D623699B-0CFC4ADE-866A8A39-F381BF3A'}
+          scrollingSpeed = {1000}
+          render={({state, fullpageAPI}) => {
+            return (
+              <ReactFullpage.Wrapper className = "App">
 
-        </header>
-      </div>
-    );
-  } else {
-    return  (
-    <div className="App">
-      <header className="App-header">
-      <h1> CONSTELLATION.IO  </h1>
-      <SignInScreen signIn = {this.signIn}/>
-      </header>
-    </div>
-  );
-  }
+                <div className = "section">
+                  <header className="App-header">
+                    <h1> CONSTELLATION.IO  </h1>
+                    <h2> Welcome {this.state.name}! You have studied for {this.state.elapsedminutes} minutes. </h2>
+                  </header>
+                </div>
+
+                <div className="section">
+                  <Reward minutes = {this.state.elapsedminutes}
+                          startMin = {this.state.startMin}   
+                          startHour = {this.state.startHour}
+                          peppapic = {this.state.peppapic}/>
+                </div>
+
+                <div className="section">
+                  <Timer updateMinutes = {this.updateMinutes}
+                          activateTimer = {this.activateTimer}
+                          deactivateTimer = {this.deactivateTimer}
+                          setHour = {this.setHour}
+                          setMin = {this.setMin}
+                          startMin = {this.state.startMin}
+                          startHour = {this.state.startHour}/>
+                </div>
+                
+                <div className="section">
+                  <Settings websites = {this.state.websites}
+                          deleteWebsite = {this.deleteWebsite}
+                          addWebsite={this.addWebsite}
+                          setHour = {this.setHour}
+                          setMin = {this.setMin}
+                          startMin = {this.state.startMin}
+                          startHour = {this.state.startHour}/>
+                </div>
+              </ReactFullpage.Wrapper>
+            );  
+          }} 
+        />
+      );
+    
+    } else {
+        return (
+          <div className="App">
+            <header className="App-header">
+              <h1> CONSTELLATION.IO  </h1>
+              <SignInScreen signIn = {this.signIn}/>
+            </header>
+          </div>
+        );
+    }
 
 
   }
 }
-
-
-
 
 
 
