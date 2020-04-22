@@ -5,7 +5,7 @@ import uiConfig from './firebase.js'
 import * as firebase from "firebase";
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
-import './App.css';
+import './App.scss';
 
 var db = firebase.firestore();
 const docRef = db.doc("users/username");
