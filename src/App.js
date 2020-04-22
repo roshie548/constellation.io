@@ -168,7 +168,7 @@ class App extends React.Component {
           licenseKey = {'D623699B-0CFC4ADE-866A8A39-F381BF3A'}
           scrollingSpeed = {1000}
           navigation
-        
+          navigationTooltips = {['Home', 'Rewards', 'Timer', 'Settings']}
            
 
           render={({state, fullpageAPI}) => {
