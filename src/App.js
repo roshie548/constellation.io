@@ -168,14 +168,14 @@ class App extends React.Component {
           licenseKey = {'D623699B-0CFC4ADE-866A8A39-F381BF3A'}
           scrollingSpeed = {1000}
           navigation
-          anchors = {'AppHeader', 'Reward', 'Timer', 'Setting'}
+        
            
 
           render={({state, fullpageAPI}) => {
             return (
               <ReactFullpage.Wrapper className = "App">
 
-                <div className = "AppHeader">
+                <div className = "section">
                   <header className="App-header">
                     <h1> CONSTELLATION.IO  </h1>
                     <div id= "small-star"></div>
@@ -185,14 +185,14 @@ class App extends React.Component {
                   </header>
                 </div>
 
-                <div className="Reward">
+                <div className="section">
                   <Reward minutes = {this.state.elapsedminutes}
                           startMin = {this.state.startMin}   
                           startHour = {this.state.startHour}
                           peppapic = {this.state.peppapic}/>
                 </div>
 
-                <div className="Timer">
+                <div className="section">
                   <Timer updateMinutes = {this.updateMinutes}
                           activateTimer = {this.activateTimer}
                           deactivateTimer = {this.deactivateTimer}
@@ -202,7 +202,7 @@ class App extends React.Component {
                           startHour = {this.state.startHour}/>
                 </div>
                 
-                <div className="Setting">
+                <div className="section">
                   <Settings websites = {this.state.websites}
                           deleteWebsite = {this.deleteWebsite}
                           addWebsite={this.addWebsite}
