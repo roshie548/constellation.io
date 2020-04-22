@@ -40,10 +40,6 @@ class Settings extends React.Component {
       return (
         <div className="Settings">
 
-           <div class = "settingButton">
-              <img className = {"settingGears"} src= 'https://image.flaticon.com/icons/svg/1827/1827870.svg' onClick={this.closeSettings}/>
-            </div>
-
             <div class = "settingForm">
 
                 <h3> BLOCKED WEBSITES </h3>
