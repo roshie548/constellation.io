@@ -76,8 +76,8 @@ h2{
   height: 3px;
   color: #FFF;
   background: transparent;
-  box-shadow: generate-stars(500);
-  animation: moveUp 1500s linear infinite;
+  box-shadow: generate(500);
+  animation: moveUp 150s linear infinite;
 }
 
 @keyframes moveUp {

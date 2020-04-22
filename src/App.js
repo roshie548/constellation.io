@@ -176,11 +176,12 @@ class App extends React.Component {
               <ReactFullpage.Wrapper className = "App">
 
                 <div className = "section">
-                  <header className="App-header">
-                    <h1> CONSTELLATION.IO  </h1>
                     <div id= "small-star"></div>
                     <div id= "medium-star"></div>
                     <div id= "big-star" ></div>
+                  <header className="App-header">
+                    <h1> CONSTELLATION.IO  </h1>
+                    
                     <h2> Welcome {this.state.name}! You have studied for {this.state.elapsedminutes} minutes. </h2>
                   </header>
                 </div>
