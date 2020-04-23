@@ -193,7 +193,7 @@ class Timer extends React.Component {
                  <input className = "timeInput" type="text" value={this.state.hr} onChange={this.handleChangeHr} />
 
                   <input className = "timeInput" type="text" value={this.state.min} onChange={this.handleChangeMin} /><br></br>
-              <input className = "submitButton" type="submit" value="SUBMIT" />
+              <input className = "submitButton" type="submit" value="Submit" />
 
             </form>
           </center>

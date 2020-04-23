@@ -1,5 +1,5 @@
 .rewards{
-  background-color: #010B2E;
+  background-color: #24305E;
   width: 100%;
   height: 100%;
   justify-content: center;
@@ -20,8 +20,8 @@ p{
   font-size: 48px;
   line-height: 22px;
 
-  color: #BCA6A6;
-  background-color: #010B2E;
+  color: #F8E9A1;
+  background-color: #24305E;
 
 }
 
@@ -33,7 +33,7 @@ p{
   /* left: 450px;
   top: 350px; */
 
-  background:#454B62;
+  background:#24305E;
 
 border: 7px solid #F2F39B;
 box-sizing: border-box;
@@ -56,8 +56,7 @@ h1{
   font-style: normal;
   font-weight: normal;
   font-size: 96px;
-
-  color: #F2F39B;
+  color: #F8E9A1;
 
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }

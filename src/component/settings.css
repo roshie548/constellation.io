@@ -1,6 +1,6 @@
 
 .Settings{
-  background: #9de2e7;
+  background: #24305E;
     width: 100%;
     height: 100%;
     display: flex;
@@ -16,7 +16,7 @@ font-weight: normal;
 font-size: 48px;
 line-height: 87px;
 letter-spacing: 0.025em;
-color: #f2f39b;
+color: #F8E9A1;
 }
 
 img{
@@ -40,6 +40,7 @@ img{
   justify-content:center;
   flex-direction: column;
   align-items:center;
+color: #F8E9A1;
 }
 
 .websiteForm{
@@ -82,7 +83,7 @@ img{
 	width: 100px;
     height: 50px;
     background: hsla(0,0%,100%,.8);
-    border: 4px solid #f2f39b;
+    border: 4px solid #F8E9A1;
     border-radius: 10px;
     padding: 3px 10px;
     margin: 5px;
