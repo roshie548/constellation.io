@@ -56,13 +56,13 @@ class SignInScreen extends React.Component {
 
         <form className = "nameForm" onSubmit={this.handleSubmit}>
 
-          <label>
+          {/* <label>
 
             Name:
-            <input type="text" value={this.state.value} onChange={this.handleChange} />
-          </label>
 
-          <input type="submit" value="Submit" />
+            <input type="text" value={this.state.value} onChange={this.handleChange} />
+          </label> */}
+          <input type="submit" value="Are You Ready to Study!" />
           </form>
 
       </div>

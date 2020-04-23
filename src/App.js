@@ -38,7 +38,7 @@ class App extends React.Component {
 
   updateMinutes = (minutes) => {
     console.log("called updatemin" + minutes);
-    
+
   	this.setState({elapsedminutes: this.state.elapsedminutes + minutes}, () => {
       var db = firebase.firestore();
       var docRef = db.collection("users").doc(firebase.auth().currentUser.email)
@@ -49,7 +49,7 @@ class App extends React.Component {
     });
 
   }
-  
+
 
   blockSites = (details) => {
     //return { redirectUrl: "https://www.coolmathgames.com"};
@@ -66,7 +66,7 @@ class App extends React.Component {
                     signedIn: true,
                      elapsedminutes: Number(doc.data().minutesStudied), //i think the data returns it as a string...
                      websites: doc.data().websites});
-      test.updatePhoto(test.state.elapsedminutes);               
+      test.updatePhoto(test.state.elapsedminutes);
     });
 
   }
@@ -169,7 +169,7 @@ class App extends React.Component {
           scrollingSpeed = {1000}
           navigation
           navigationTooltips = {['Home', 'Rewards', 'Timer', 'Settings']}
-           
+
 
           render={({state, fullpageAPI}) => {
             return (
@@ -180,15 +180,15 @@ class App extends React.Component {
                     <div id= "medium-star"></div>
                     <div id= "big-star" ></div>
                   <header className="App-header">
-                    <h1> CONSTELLATION.IO  </h1>
-                    
+                    <h1> constellation.io  </h1>
+
                     <h2> Welcome {this.state.name}! You have studied for {this.state.elapsedminutes} minutes. </h2>
                   </header>
                 </div>
 
                 <div className="section">
                   <Reward minutes = {this.state.elapsedminutes}
-                          startMin = {this.state.startMin}   
+                          startMin = {this.state.startMin}
                           startHour = {this.state.startHour}
                           peppapic = {this.state.peppapic}/>
                 </div>
@@ -202,7 +202,7 @@ class App extends React.Component {
                           startMin = {this.state.startMin}
                           startHour = {this.state.startHour}/>
                 </div>
-                
+
                 <div className="section">
                   <Settings websites = {this.state.websites}
                           deleteWebsite = {this.deleteWebsite}
@@ -213,16 +213,19 @@ class App extends React.Component {
                           startHour = {this.state.startHour}/>
                 </div>
               </ReactFullpage.Wrapper>
-            );  
-          }} 
+            );
+          }}
         />
       );
-    
+
     } else {
         return (
           <div className="App">
             <header className="App-header">
-              <h1> CONSTELLATION.IO  </h1>
+              <div id= "small-star"></div>
+              <div id= "medium-star"></div>
+              <div id= "big-star" ></div>
+              <h1> constellation.io  </h1>
               <SignInScreen signIn = {this.signIn}/>
             </header>
           </div>
