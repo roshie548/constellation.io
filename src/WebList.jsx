@@ -1,5 +1,6 @@
 import React from 'react';
 import "./component/settings.css"
+import "./component/weblist.css"
 
 class WebList extends React.Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class WebList extends React.Component {
   render() {
     return (
       <div>
-        <img src={require("./component/delete.png")} onClick={() => this.props.deleteWebsite(this.props.url)} /> {this.props.url}
+        <img className = "X" src={require("./component/delete.png")} onClick={() => this.props.deleteWebsite(this.props.url)} /> {this.props.url}
       </div>
     );
   }
