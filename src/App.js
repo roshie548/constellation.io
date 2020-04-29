@@ -6,8 +6,10 @@ import Reward from './Reward.jsx'
 import Settings from './Settings.jsx'
 import Timer from './Timer.jsx'
 import SignInScreen from './signin.jsx'
+import NavBar from './NavBar.jsx'
 import uiConfig from './firebase.js'
 import * as firebase from "firebase";
+import './component/nav.css';
 
 import ReactDOM from 'react-dom';
 import ReactFullpage from '@fullpage/react-fullpage';
@@ -174,6 +176,12 @@ class App extends React.Component {
           render={({state, fullpageAPI}) => {
             return (
               <ReactFullpage.Wrapper className = "App">
+              <nav>
+                <a href="#Home" className="menu-links" data-menuanchor="Home"> Home </a>
+                <a href="#Rewards" className="menu-links" data-menuanchor="Rewards"> Constellation </a>
+                <a href="#Timer" className="menu-links" data-menuanchor="Timer"> Timer </a>
+                <a href="#Settings" className="menu-links" data-menuanchor="Settings"> Settings </a>
+              </nav>
 
                 <div className = "section">
                     <div id= "small-star"></div>
@@ -213,6 +221,7 @@ class App extends React.Component {
                           startHour = {this.state.startHour}/>
                 </div>
               </ReactFullpage.Wrapper>
+
             );
           }}
         />
