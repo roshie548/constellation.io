@@ -166,6 +166,13 @@ class App extends React.Component {
 
     if (this.state.signedIn) {
       return (
+      <div>
+        <nav>
+                  <a href="#Home" className="menu-links"> Home </a>
+                  <a href="#Rewards" className="menu-links"> Constellation </a>
+                  <a href="#Timer" className="menu-links"> Timer </a>
+                  <a href="#Settings" className="menu-links"> Settings </a>
+        </nav>
         <ReactFullpage
           licenseKey = {'D623699B-0CFC4ADE-866A8A39-F381BF3A'}
           scrollingSpeed = {1000}
@@ -175,15 +182,13 @@ class App extends React.Component {
 
           render={({state, fullpageAPI}) => {
             return (
-              <ReactFullpage.Wrapper className = "App">
-              <nav>
-                <a href="#Home" className="menu-links" data-menuanchor="Home"> Home </a>
-                <a href="#Rewards" className="menu-links" data-menuanchor="Rewards"> Constellation </a>
-                <a href="#Timer" className="menu-links" data-menuanchor="Timer"> Timer </a>
-                <a href="#Settings" className="menu-links" data-menuanchor="Settings"> Settings </a>
-              </nav>
+             
+                
 
-                <div className = "section">
+              <ReactFullpage.Wrapper className = "App">
+              
+
+                <div className = "section" data-anchor="Home">
                     <div id= "small-star"></div>
                     <div id= "medium-star"></div>
                     <div id= "big-star" ></div>
@@ -194,14 +199,14 @@ class App extends React.Component {
                   </header>
                 </div>
 
-                <div className="section">
+                <div className="section" data-anchor="Rewards">
                   <Reward minutes = {this.state.elapsedminutes}
                           startMin = {this.state.startMin}
                           startHour = {this.state.startHour}
                           peppapic = {this.state.peppapic}/>
                 </div>
 
-                <div className="section">
+                <div className="section" data-anchor="Timer">
                   <Timer updateMinutes = {this.updateMinutes}
                           activateTimer = {this.activateTimer}
                           deactivateTimer = {this.deactivateTimer}
@@ -211,7 +216,7 @@ class App extends React.Component {
                           startHour = {this.state.startHour}/>
                 </div>
 
-                <div className="section">
+                <div className="section" data-anchor="Settings">
                   <Settings websites = {this.state.websites}
                           deleteWebsite = {this.deleteWebsite}
                           addWebsite={this.addWebsite}
@@ -221,12 +226,15 @@ class App extends React.Component {
                           startHour = {this.state.startHour}/>
                 </div>
               </ReactFullpage.Wrapper>
+              
+              
 
             );
           }}
+          
         />
+        </div> 
       );
-
     } else {
         return (
           <div className="App">
@@ -240,6 +248,7 @@ class App extends React.Component {
           </div>
         );
     }
+    
 
 
   }
