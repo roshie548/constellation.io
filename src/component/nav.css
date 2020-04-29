@@ -21,7 +21,7 @@ nav {
   opacity: 50%;
   color: white; 
 }
-i can do navbar! : D : 
+
 .menu-links {
   @include span(1 of 3);
   &:last-child {

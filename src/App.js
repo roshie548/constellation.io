@@ -28,7 +28,10 @@ class App extends React.Component {
         timerStart: false,
         startMin: 0,
         startHour: 0,
-        peppapic: 0
+        peppapic: 0,
+        avopic,
+        avoList: ["avo1.png", "avo2.png", "avo3.png", "avo4.png", "avo5.png", "avo6.png", "avo7.png", "avo8.png"],
+        peppaList: ["peppa1.png", "peppa2.png", "peppa3.png","peppa4.png","peppa5.png","peppa6.png","peppa7.png", "peppa8.png"]
 	  }
 
 	this.updateMinutes.bind(this);
@@ -200,10 +203,22 @@ class App extends React.Component {
                 </div>
 
                 <div className="section" data-anchor="Rewards">
+                  <div className="slide">
+
                   <Reward minutes = {this.state.elapsedminutes}
                           startMin = {this.state.startMin}
                           startHour = {this.state.startHour}
+                          imageList = {this.state.peppaList}
                           peppapic = {this.state.peppapic}/>
+                  </div>
+
+                  <div className="slide">
+                  <Reward minutes = {this.state.elapsedminutes}
+                          startMin = {this.state.startMin}
+                          startHour = {this.state.startHour}
+                          imageList = {this.state.avoList}
+                          peppapic = {this.state.peppapic}/>
+                  </div>
                 </div>
 
                 <div className="section" data-anchor="Timer">

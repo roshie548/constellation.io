@@ -17,7 +17,7 @@ class Reward extends React.Component {
       return (
         <div className = "rewards">
             
-            <p><img src=   {require('./component/rewards/' + this.state.images[this.props.peppapic])} className = {"Peppapics"} /></p>
+            <p><img src=   {require('./component/rewards/' + this.props.imageList[this.props.peppapic])} className = {"Peppapics"} /></p>
         </div>
       )
     
