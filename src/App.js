@@ -29,7 +29,7 @@ class App extends React.Component {
         startMin: 0,
         startHour: 0,
         peppapic: 0,
-        avopic,
+        avopic: 0,
         avoList: ["avo1.png", "avo2.png", "avo3.png", "avo4.png", "avo5.png", "avo6.png", "avo7.png", "avo8.png"],
         peppaList: ["peppa1.png", "peppa2.png", "peppa3.png","peppa4.png","peppa5.png","peppa6.png","peppa7.png", "peppa8.png"]
 	  }
@@ -156,11 +156,15 @@ class App extends React.Component {
 
 
   updatePhoto = (elapsedminutes) => {
-    var whichphoto = Math.floor(elapsedminutes / 10);
-    if (whichphoto > 7) {
-      whichphoto = 7;
+    var picNumber = Math.floor(elapsedminutes / 10);
+    var avoNumber = 0;
+    if (picNumber > 7) {
+      avoNumber = Math.min(picNumber - 7, 7);
+      picNumber = 7;
+      console.log(avoNumber)
     }
-    this.setState({peppapic: whichphoto});
+    this.setState({peppapic: picNumber, 
+                  avopic: avoNumber});
 
   };
 
@@ -209,7 +213,7 @@ class App extends React.Component {
                           startMin = {this.state.startMin}
                           startHour = {this.state.startHour}
                           imageList = {this.state.peppaList}
-                          peppapic = {this.state.peppapic}/>
+                          imageNum = {this.state.peppapic}/>
                   </div>
 
                   <div className="slide">
@@ -217,7 +221,7 @@ class App extends React.Component {
                           startMin = {this.state.startMin}
                           startHour = {this.state.startHour}
                           imageList = {this.state.avoList}
-                          peppapic = {this.state.peppapic}/>
+                          imageNum = {this.state.avopic}/>
                   </div>
                 </div>
 

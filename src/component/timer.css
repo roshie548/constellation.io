@@ -132,6 +132,7 @@ h4{
 
 .loader-card {
   align-items: center;
+  margin-left: 270px;
 }
 /* Loader two: Wave */
 .loader.two {
