@@ -64,10 +64,11 @@ class App extends React.Component {
   signIn = () => {
     var db = firebase.firestore();
     var docRef = db.collection("users").doc(firebase.auth().currentUser.email)
+    var firebaseName = firebase.auth().currentUser.displayName
     // var userData = db.collection("users").doc(firebase.auth().currentUser.email).data();
     var test = this;
     docRef.get().then(function(doc) {
-      test.setState({name: doc.data().name,
+      test.setState({name: firebaseName,
                     signedIn: true,
                      elapsedminutes: Number(doc.data().minutesStudied), //i think the data returns it as a string...
                      websites: doc.data().websites});
