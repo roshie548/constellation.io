@@ -6,7 +6,7 @@ To run:
 ### `npm install` 
 ### `npm run build`
 
-In chrome://extensions (manage extensions), load unpacked and select the build folder 
+In chrome://extensions (manage extensions), load unpacked and select the build folder. 
 Then, just launch the app! 
 
 ## How the Extension Works
