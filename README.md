@@ -2,6 +2,8 @@
 ### Project Leaders: Anthony Zhou, Roshan Kumaraswamy 
 ### Developers: Ada Hu, Amy Huang, Michelle Lin, Satiya Kem, Vidya Ganga
 
+Doanload Here: https://chrome.google.com/webstore/detail/constellationio/ibidmkkkcmllngiogmnccgclkfehbkfp
+
 To run: 
 ### `npm install` 
 ### `npm run build`
