@@ -48,7 +48,7 @@ class Timer extends React.Component {
 
 
     }
-    , 1000);
+    , 60000);
 
 
 
@@ -58,7 +58,7 @@ class Timer extends React.Component {
 
 
     this.props.activateTimer();
-    const t = 60000*this.state.hr + 1000* this.state.min;
+    const t = 3600000*this.state.hr + 60000* this.state.min;
     this.ourTimeout =setTimeout(() => {
       console.log("stopped");
       this.props.deactivateTimer();

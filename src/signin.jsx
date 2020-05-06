@@ -36,7 +36,7 @@ class SignInScreen extends React.Component {
         if (!(docSnapshot.exists)) {
           userDoc.set({
             name: entry,
-            websites: ["facebook.com"],
+            websites: [],
             minutesStudied: 0
           });
         }
