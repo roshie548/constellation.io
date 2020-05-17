@@ -2,14 +2,23 @@
 ### Project Leaders: Anthony Zhou, Roshan Kumaraswamy 
 ### Developers: Ada Hu, Amy Huang, Michelle Lin, Satiya Kem, Vidya Ganga
 
-Download Here: https://chrome.google.com/webstore/detail/constellationio/ibidmkkkcmllngiogmnccgclkfehbkfp
+#### Download Here: https://chrome.google.com/webstore/detail/constellationio/ibidmkkkcmllngiogmnccgclkfehbkfp
 
-To run: 
+To run locally: 
+
+Clone repo
 ### `npm install` 
 ### `npm run build`
 
 In chrome://extensions (manage extensions), load unpacked and select the build folder. 
 Then, just launch the app! 
+
+## Learning Resources
+The slides used for teaching and development are available here: http://bit.ly/constellationresources
+
+## Primary Technologies Used
+- React (HTML, CSS, JavaScript)
+- Google Firebase (Authentication and Firestore)
 
 ## How the Extension Works
 
